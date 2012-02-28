@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  creationDate: 2012-02-12 22:51:27
+  lostDate: 2012-02-12
+  foundDate: 2012-02-12
+  adoptedDate: 2012-02-12
+
+two:
+  name: MyString
+  creationDate: 2012-02-12 22:51:27
+  lostDate: 2012-02-12
+  foundDate: 2012-02-12
+  adoptedDate: 2012-02-12

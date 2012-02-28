@@ -1,4 +1,24 @@
 Adoptamimascota::Application.routes.draw do
+  resources :pets
+
+  resources :cities
+
+  resources :shelters
+
+  resources :users
+
+  resources :species
+
+  resources :breeds
+
+  resources :profiles
+
+  match 'exit' => 'sessions#destroy', :as => :logout
+  match 'about' => 'home#about', :as => :about
+  match 'contact' => 'home#contact', :as => :contact
+  
+  get "home/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +68,7 @@ Adoptamimascota::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

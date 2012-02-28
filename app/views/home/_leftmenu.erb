@@ -1,0 +1,18 @@
+
+	<div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Las mascotas</li>
+	      <% species_menu.each do |s| %>
+	      
+	      <li class="<%= if current_page?(:controller => :species, :action => :show, :id => s.id) then 'active' else 'li_menu' end %>"  > <%= link_to s.name, s %>  </li>
+
+	      <% end %>
+
+              <li class="nav-header">Destacados</li>
+              <li><a href="#">Mascotas Extraviadas!</a></li>
+              <li><a href="#">Regalo Cachorritos :)</a></li>
+              
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->

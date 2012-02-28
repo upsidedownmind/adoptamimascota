@@ -1,0 +1,37 @@
+<%= form_for(@pet) do |f| %>
+  <% if @pet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+      <ul>
+      <% @pet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :creationDate %><br />
+    <%= f.datetime_select :creationDate %>
+  </div>
+  <div class="field">
+    <%= f.label :lostDate %><br />
+    <%= f.date_select :lostDate %>
+  </div>
+  <div class="field">
+    <%= f.label :foundDate %><br />
+    <%= f.date_select :foundDate %>
+  </div>
+  <div class="field">
+    <%= f.label :adoptedDate %><br />
+    <%= f.date_select :adoptedDate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

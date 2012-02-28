@@ -1,0 +1,33 @@
+
+     <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <%= link_to "Adopta mi Mascota", root_url, :class=>"brand" %>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="<%= printif "home", "index", "active", "nvlink" %>"><%= link_to 'Inicio', root_url %></li>
+              <li class="<%= printif "home", "about", "active", "nvlink" %>"><%= link_to "Quienes Somos", about_url %></li>
+              <li class="<%= printif "home", "contact", "active", "nvlink" %>"><%= link_to "Contacto", contact_url %></li>
+            </ul>
+            <p class="navbar-text pull-right">
+
+<%=
+   link_to_if(current_user.nil?, "Iniciar Session", users_path) do
+     link_to current_user.name, current_user
+
+   end
+
+%>
+<% unless current_user.nil? %>
+ - 
+<%= link_to "Salir", logout_url %>
+
+<% end %>	      
+  </p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>

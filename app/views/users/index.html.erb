@@ -1,0 +1,24 @@
+<div class="row-fluid">
+
+  <div class="span4">
+    <h2>Iniciar Sesion</h2>
+
+    <%= form_tag sessions_path do %>
+    <div class="field">
+      <%= label_tag :email %>
+      <%= text_field_tag :email, params[:email] %>
+    </div>
+    <div class="field">
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+    </div>
+    <div class="actions"><%= submit_tag "Iniciar" %></div>
+    <% end %>
+  </div>
+
+  <div class="span5" style="padding:2em"><p>Al iniciar session podras publicar tus mascotas y cambiar datos de tu perfil.</p>
+    <p>¿Olvidaste tu contraseña? Clik <%= link_to 'aqui', users_path %></p>
+    <p>¿Todabia no tienes una cuenta? Registrate haciendo clik <%= link_to 'aqui', {:controller => :users, :action => :new} %>. Es gratis!</p>
+
+</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="row-fluid">
+  <% if @user.errors.any? %>
+  <div class="span10">
+    <div class="alert alert-block">
+      <a class="close" data-dismiss="alert">×</a>
+      <h4>Datos incorrectos</h4>
+      <ul>
+	<% for message in @user.errors.full_messages %>
+	<li><%= message %></li>
+	<% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="span4">
+    <h2>Regístrate</h2>
+
+    <%= form_for @user do |f| %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div class="actions"><%= f.submit :class => "btn-primary", :value => "Registrar" %></div>
+    <% end %>
+  </div>
+  
+  <div class="span5" style="padding:2em" >Regítrate de forma gratuita para poder publicar tus mascotas y encotrarles un nuevo hogar.</div>
+
+</div>
