@@ -8,11 +8,11 @@
           </a>
           <%= link_to "Adopta mi Mascota", root_url, :class=>"brand" %>
           <div class="nav-collapse">
-            <ul class="nav">
+            <nav><ul class="nav">
               <li class="<%= printif "home", "index", "active", "nvlink" %>"><%= link_to 'Inicio', root_url %></li>
               <li class="<%= printif "home", "about", "active", "nvlink" %>"><%= link_to "Quienes Somos", about_url %></li>
               <li class="<%= printif "home", "contact", "active", "nvlink" %>"><%= link_to "Contacto", contact_url %></li>
-            </ul>
+            </ul></nav>
             <p class="navbar-text pull-right">
 
 <%=

@@ -16,20 +16,47 @@
   <%= csrf_meta_tags %>
 
   <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
+
+    html {height: 100%;}
+    body {
+       padding-top: 60px;
+       padding-bottom: 40px;
+       height: 100%;
+    }
+    .sidebar-nav {
+       padding: 9px 0;
+    }
+
+    .sidebar-nav a:hover {
+      color: black;
+    }
+
+    footer p {
+      text-align: center;
+      font-size: smaller;
+      color: gray;
+    }
+
+    section a {
+    color: blue;
+    }
+
+    section a:visited {
+    color: blue;
+    }
+
+    section a:hover {
+    color: black;
+    background-color: transparent;
+    }
+
     </style>
 
 </head>
 <body>
 
 <div class="navbar navbar-fixed-top">
- <%= render "home/navmenu" %>
+ <header><%= render "home/navmenu" %></header>
 </div>
 
  <div class="container-fluid">
@@ -37,21 +64,20 @@
 
         <%= render "home/leftmenu" %>
 
-        <div class="span9">
-          
-		  <%= yield %>
-	
-          
-        </div><!--/span-->
+        <section>
+	  <div class="span9">
+            <%= yield %>          
+          </div><!--/span-->
+	</section>
       </div><!--/row-->
 
       <hr>
 
+    </div><!--/.fluid-container-->
+
       <footer>
         <p>&copy; Adopta mi Mascota <%= Time.new.year%></p>
       </footer>
-
-    </div><!--/.fluid-container-->
 
 </body>
 </html>

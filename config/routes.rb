@@ -13,6 +13,8 @@ Adoptamimascota::Application.routes.draw do
 
   resources :profiles
 
+  resources :sessions
+
   match 'exit' => 'sessions#destroy', :as => :logout
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
