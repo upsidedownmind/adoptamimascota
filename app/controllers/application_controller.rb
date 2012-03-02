@@ -3,11 +3,18 @@ class ApplicationController < ActionController::Base
 
   #before_filter :populate_leftmenu
 
+  protected
+
+  def user_needed
+    unless session[:user_id]
+      flash[:notice] = "Es necesario que inicies session para la opcion solicitada"
+      redirect_to users_path
+    end
+  end
+
   def species_menu
     @species_menu ||= Specie.all
   end
-
-  private 
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

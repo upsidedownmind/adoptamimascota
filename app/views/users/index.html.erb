@@ -1,5 +1,12 @@
 <div class="row-fluid">
 
+  <% if flash[:notice] %>
+      <div class="span10 alert">
+	<a class="close" data-dismiss="alert">×</a>
+	<%= flash[:notice] %>
+      </div>
+  <% end %>
+
   <div class="span4">
     <h2>Iniciar Sesion</h2>
 

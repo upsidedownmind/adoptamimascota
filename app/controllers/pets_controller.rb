@@ -1,4 +1,7 @@
 class PetsController < ApplicationController
+
+  before_filter :user_needed, :only => [:new, :edit, :create, :destroy]
+
   # GET /pets
   # GET /pets.json
   def index
@@ -25,6 +28,7 @@ class PetsController < ApplicationController
   # GET /pets/new.json
   def new
     @pet = Pet.new
+    @species_list = Specie.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,8 +44,13 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
+    @species_list = Specie.all
+    
     @pet = Pet.new(params[:pet])
-
+    
+    @pet.user = current_user
+    @pet.creationDate = Date.new
+    
     respond_to do |format|
       if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }

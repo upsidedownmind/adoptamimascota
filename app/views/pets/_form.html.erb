@@ -1,7 +1,9 @@
-<%= form_for(@pet) do |f| %>
+
+<%= form_for @pet, :html => { :multipart => true } do |f| %>
   <% if @pet.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+    <div class="alert error-alert">
+  <a class="close" data-dismiss="alert">×</a>
+      <h4><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h4>
 
       <ul>
       <% @pet.errors.full_messages.each do |msg| %>
@@ -15,22 +17,30 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  
   <div class="field">
-    <%= f.label :creationDate %><br />
-    <%= f.datetime_select :creationDate %>
+    <%= f.label :picture %><br />
+    <%= f.file_field :picture %>
   </div>
+
   <div class="field">
-    <%= f.label :lostDate %><br />
-    <%= f.date_select :lostDate %>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :size=>"60*5" %>
   </div>
+
+  
   <div class="field">
-    <%= f.label :foundDate %><br />
-    <%= f.date_select :foundDate %>
+    <%= f.label :specie_id %><br />
+    <%= f.collection_select(:specie_id, @species_list, :id, :name, 
+	options ={:prompt => " - "}) %>
   </div>
+
+  
   <div class="field">
-    <%= f.label :adoptedDate %><br />
-    <%= f.date_select :adoptedDate %>
+    <%= label_tag(:perdida, "Extraviada") %>
+    <%= check_box_tag(:perdida) %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

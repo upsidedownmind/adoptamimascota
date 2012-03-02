@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213015127) do
+ActiveRecord::Schema.define(:version => 20120302020915) do
 
   create_table "breeds", :force => true do |t|
     t.string   "name"
@@ -32,8 +32,14 @@ ActiveRecord::Schema.define(:version => 20120213015127) do
     t.date     "lostDate"
     t.date     "foundDate"
     t.date     "adoptedDate"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.text     "picture"
+    t.string   "pets"
+    t.text     "description"
+    t.integer  "specie_id"
+    t.integer  "user_id"
+    t.string   "picture_file_name"
   end
 
   create_table "profiles", :force => true do |t|

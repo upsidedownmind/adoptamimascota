@@ -1,7 +1,6 @@
 <div class="row-fluid">
   <% if @user.errors.any? %>
-  <div class="span10">
-    <div class="alert alert-block">
+    <div class="span10 alert alert-block">
       <a class="close" data-dismiss="alert">×</a>
       <h4>Datos incorrectos</h4>
       <ul>
@@ -10,7 +9,6 @@
 	<% end %>
       </ul>
     </div>
-  </div>
   <% end %>
 
   <div class="span4">
