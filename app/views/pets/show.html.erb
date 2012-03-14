@@ -29,6 +29,22 @@
 <% end %>
 
 <% if @pet.belongs_to? current_user %>
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
+
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Mascota
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to 'Editar datos', edit_pet_path(@pet) %></li> 
+    <li><%= link_to 'Publicar otra mascota', new_pet_path %></li>
+    <li><%= link_to 'Volver a mis mascotas', pets_path %></li>
+
+  </ul>
+</div>
+
+<% else %>
+
+
+
 <% end %>

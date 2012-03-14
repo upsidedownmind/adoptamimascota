@@ -39,21 +39,28 @@ class PetsController < ApplicationController
   # GET /pets/1/edit
   def edit
     @pet = Pet.find(params[:id])
+    
+    if @pet.belongs_to? current_user
+      @species_list = Specie.all
+    else
+      redirect_to @pet, notice: 'La mascota no te pertenece.'
+    end
+
   end
 
   # POST /pets
   # POST /pets.json
   def create
-    @species_list = Specie.all
-    
     @pet = Pet.new(params[:pet])
+
+    @species_list = Specie.all
     
     @pet.user = current_user
     @pet.creationDate = Date.new
     
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
+        format.html { redirect_to @pet, notice: 'Mascota publicada!.' }
         format.json { render json: @pet, status: :created, location: @pet }
       else
         format.html { render action: "new" }
@@ -66,10 +73,17 @@ class PetsController < ApplicationController
   # PUT /pets/1.json
   def update
     @pet = Pet.find(params[:id])
+    
+    unless @pet.belongs_to? current_user
+      redirect_to @pet, notice: 'La mascota no te pertenece.'
+      return;
+    end
 
+    @species_list = Specie.all
+    
     respond_to do |format|
       if @pet.update_attributes(params[:pet])
-        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to @pet, notice: 'Mascota modificada.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -82,11 +96,19 @@ class PetsController < ApplicationController
   # DELETE /pets/1.json
   def destroy
     @pet = Pet.find(params[:id])
-    @pet.destroy
 
     respond_to do |format|
-      format.html { redirect_to pets_url }
-      format.json { head :no_content }
+      if @pet.belong_to? current_user
+        @pet.destroy
+      
+        format.html { redirect_to pets_url, :notice => 'Mascota Eliminada.' }
+        format.json { head :no_content }
+      else
+
+        format.html { redirect_to @pet, notice: 'La mascota no te pertenece.' }
+        format.json { head :no_content }
+      end
     end
+
   end
 end

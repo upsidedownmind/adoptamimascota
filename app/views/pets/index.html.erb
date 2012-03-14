@@ -1,14 +1,5 @@
-<div class="row-fluid">
-<% @pets.each do |pet| %>
-            <div class="span4">
-              <h2><%= pet.name %></h2>
-              <p><%= pet.description %></p>
-	      <p><%= image_tag pet.picture.url(:thumb) %></p>
-              <p><%= link_to "Mas Detalles", pet_path(pet), :class => "btn" %></p>
-            </div><!--/span-->
 
-<% end %>
-</div>
+<%= render "pets/petslist" %>
 
 
 <h1>Listing pets</h1>
