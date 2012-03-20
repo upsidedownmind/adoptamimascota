@@ -1,20 +1,10 @@
+<h2>Mascotas publicadas</h2>
+
 
 <%= render "pets/petslist" %>
-
-
-<h1>Listing pets</h1>
+<!--
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Creationdate</th>
-    <th>Lostdate</th>
-    <th>Founddate</th>
-    <th>Adopteddate</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @pets.each do |pet| %>
   <tr>
@@ -30,6 +20,6 @@
 <% end %>
 </table>
 
+-->
 <br />
-
-<%= link_to 'New Pet', new_pet_path %>
+<%= link_to 'Agregar mascota', new_pet_path, :class =>"btn btn-success", :style => "color: white" %>

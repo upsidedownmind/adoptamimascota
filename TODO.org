@@ -1,0 +1,15 @@
+
+* Pendientes para el sitio
+
+** TODO Seccion "Contato". jolisper?
+** TODO Seccion Mascotas Extraviadas
+** TODO Seccion Regalo Cachorros
+** TODO Mail al registrarse
+** TODO Consulta/mensaje al dueño de la mascota ¿va con login?
+** TODO Mails cada X meses preguntado que paso con la mascota
+** TODO Recordar pagina actual al logiarse
+** TODO Mejorar Diseño!!!!!
+** TODO Reportar abuso de contenido/inapropiado
+** TODO Links amigos, sitios recomendados
+** TODO Integracion tweeter, Facebook. ¿Gema?
+** TODO Integrar test de rails

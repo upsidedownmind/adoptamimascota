@@ -32,14 +32,14 @@
 
 <div class="btn-group">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    Mascota
+    Opciones
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">
     <li><%= link_to 'Editar datos', edit_pet_path(@pet) %></li> 
     <li><%= link_to 'Publicar otra mascota', new_pet_path %></li>
     <li><%= link_to 'Volver a mis mascotas', pets_path %></li>
-
+    <li><%= link_to 'Borrar mascota', @pet, confirm: '¿Borrar mascota?', method: :delete %></li>
   </ul>
 </div>
 

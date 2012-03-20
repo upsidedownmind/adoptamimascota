@@ -1,10 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+<div>
+<h2><%= @species.name %></h2>
+<% if @pets.empty? %>
+<p id="notice">No se encotraron mascotas.</p>
+<% end %>
+<div>
 
-<p>
-  <b>Name:</b>
-  <%= @species.name %>
-</p>
+<%= render "pets/petslist" %>
 
+<br />
+<%= link_to 'Subi tu mascota!', new_pet_path, :class =>"btn btn-success", :style => "color: white" %>
 
-<%= link_to 'Edit', edit_species_path(@species) %> |
-<%= link_to 'Back', species_path %>
+</div>
